@@ -1,0 +1,294 @@
+{
+  "products": [
+  {
+    "id": 1,
+    "title": "Cheeseburger",
+    "description": "A classic cheeseburger with a juicy beef patty, melted cheese, lettuce, tomato, and pickles.",
+    "price": "$4.99",
+    "rating": 4.5,
+    "category": "Burger",
+    "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2020/07/best-burgers-www.thereciperebel.com-1200-13-of-18.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Hamburger",
+    "description": "A traditional hamburger with a seasoned beef patty, lettuce, tomato, onions, and pickles on a sesame seed bun.",
+    "price": "$3.99",
+    "rating": 4.2,
+    "category": "Burger",
+    "thumbnail": "https://i.imgur.com/8LFkDcb.jpg"
+  },
+  {
+    "id": 3,
+    "title": "French Fries",
+    "description": "Crispy golden french fries lightly salted for the perfect snack or side dish.",
+    "price": "$2.49",
+    "rating": 4.4,
+    "category": "Side Dish",
+    "thumbnail": "https://i.imgur.com/LWJGb71.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Loaded Nachos",
+    "description": "Tortilla chips topped with melted cheese, seasoned ground beef, jalapenos, sour cream, and salsa.",
+    "price": "$5.99",
+    "rating": 4.6,
+    "category": "Side Dish",
+    "thumbnail": "https://i.imgur.com/Y6aHdJ0.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Chicken Nuggets",
+    "description": "Tender and juicy chicken nuggets, served with your choice of dipping sauce.",
+    "price": "$3.99",
+    "rating": 4.3,
+    "category": "Appetizer",
+    "thumbnail": "https://i.imgur.com/1M2dIPU.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Onion Rings",
+    "description": "Crispy and crunchy onion rings served with a side of dipping sauce.",
+    "price": "$3.99",
+    "rating": 4.1,
+    "category": "Appetizer",
+    "thumbnail": "https://i.imgur.com/2MRt6ER.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Mozzarella Sticks",
+    "description": "Golden brown mozzarella sticks served with marinara sauce for dipping.",
+    "price": "$3.99",
+    "rating": 4.4,
+    "category": "Appetizer",
+    "thumbnail": "https://i.imgur.com/WXVnUaU.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Milkshake",
+    "description": "Creamy and delicious milkshake available in various flavors like chocolate, vanilla, and strawberry.",
+    "price": "$3.49",
+    "rating": 4.5,
+    "category": "Beverage",
+    "thumbnail": "https://i.imgur.com/ViyUMeF.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Soft Drink",
+    "description": "A refreshing soft drink available in various sizes and flavors.",
+    "price": "$1.49",
+    "rating": 4.2,
+    "category": "Beverage",
+    "thumbnail": "https://i.imgur.com/C7Je7HA.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Hot Dog",
+    "description": "A classic hot dog served with ketchup, mustard, and onions.",
+    "price": "$3.29",
+    "rating": 4.0,
+    "category": "Hot Dog",
+    "thumbnail": "https://i.imgur.com/2Rq75HR.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Corn Dog",
+    "description": "A classic corn dog with a savory hot dog encased in sweet cornbread batter.",
+    "price": "$2.99",
+    "rating": 3.8,
+    "category": "Hot Dog",
+    "thumbnail": "https://i.imgur.com/mGG63a3.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Pizza Slice",
+    "description": "A slice of mouth-watering pizza topped with cheese, pepperoni, and tomato sauce.",
+    "price": "$2.99",
+    "rating": 4.6,
+    "category": "Pizza",
+    "thumbnail": "https://i.imgur.com/lqBkgqe.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Taco",
+    "description": "A delicious taco filled with seasoned beef, lettuce, cheese, and salsa.",
+    "price": "$2.99",
+    "rating": 4.3,
+    "category": "Mexican",
+    "thumbnail": "https://i.imgur.com/rwGvSbJ.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Burrito",
+    "description": "A hearty burrito stuffed with rice, beans, cheese, and your choice of meat.",
+    "price": "$5.99",
+    "rating": 4.5,
+    "category": "Mexican",
+    "thumbnail": "https://i.imgur.com/mEwQaA2.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Nachos",
+    "description": "Crispy tortilla chips topped with melted cheese, jalapenos, sour cream, and salsa.",
+    "price": "$4.99",
+    "rating": 4.4,
+    "category": "Mexican",
+    "thumbnail": "https://i.imgur.com/n8VY3X7.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Chicken Sandwich",
+    "description": "A crispy chicken fillet served on a toasted bun with lettuce, tomato, and mayo.",
+    "price": "$4.49",
+    "rating": 4.2,
+    "category": "Sandwich",
+    "thumbnail": "https://i.imgur.com/Ml0bX0X.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Fish Sandwich",
+    "description": "A tasty fish fillet served on a bun with lettuce, tartar sauce, and a slice of lemon.",
+    "price": "$4.99",
+    "rating": 4.1,
+    "category": "Sandwich",
+    "thumbnail": "https://i.imgur.com/LOFNNzL.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Chicken Wrap",
+    "description": "Grilled chicken wrapped in a soft flour tortilla with lettuce, tomato, cheese, and ranch dressing.",
+    "price": "$4.99",
+    "rating": 4.3,
+    "category": "Wrap",
+    "thumbnail": "https://i.imgur.com/1sVWpAb.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Veggie Wrap",
+    "description": "A delicious veggie wrap filled with assorted fresh vegetables and hummus.",
+    "price": "$4.49",
+    "rating": 4.0,
+    "category": "Wrap",
+    "thumbnail": "https://i.imgur.com/QeUXOU6.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Caesar Salad",
+    "description": "Fresh romaine lettuce tossed in Caesar dressing with croutons and parmesan cheese.",
+    "price": "$5.99",
+    "rating": 4.5,
+    "category": "Salad",
+    "thumbnail": "https://i.imgur.com/z9gIUIb.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Greek Salad",
+    "description": "A classic Greek salad with crisp lettuce, tomatoes, cucumbers, olives, feta cheese, and Greek dressing.",
+    "price": "$6.99",
+    "rating": 4.3,
+    "category": "Salad",
+    "thumbnail": "https://i.imgur.com/W4YSvxw.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Fruit Salad",
+    "description": "A refreshing fruit salad made with a variety of fresh seasonal fruits.",
+    "price": "$4.99",
+    "rating": 4.2,
+    "category": "Salad",
+    "thumbnail": "https://i.imgur.com/Nz5hqig.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Ice Cream Sundae",
+    "description": "A delightful ice cream sundae topped with whipped cream, chocolate syrup, nuts, and a cherry.",
+    "price": "$3.99",
+    "rating": 4.6,
+    "category": "Dessert",
+    "thumbnail": "https://i.imgur.com/sj1L4vD.jpg"
+  },
+  {
+    "id": 24,
+    "title": "Brownie",
+    "description": "A rich and decadent chocolate brownie served warm with a scoop of vanilla ice cream.",
+    "price": "$2.99",
+    "rating": 4.4,
+    "category": "Dessert",
+    "thumbnail": "https://i.imgur.com/U6uPx47.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Cheesecake",
+    "description": "Creamy and smooth cheesecake with a graham cracker crust, topped with your choice of fruit topping.",
+    "price": "$4.99",
+    "rating": 4.7,
+    "category": "Dessert",
+    "thumbnail": "https://i.imgur.com/DIbUJiA.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Chocolate Chip Cookie",
+    "description": "A classic chocolate chip cookie baked to perfection and served warm.",
+    "price": "$1.49",
+    "rating": 4.3,
+    "category": "Dessert",
+    "thumbnail": "https://i.imgur.com/8QPKK7w.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Iced Coffee",
+    "description": "Chilled coffee served over ice with your choice of cream and sweetener.",
+    "price": "$2.99",
+    "rating": 4.2,
+    "category": "Beverage",
+    "thumbnail": "https://i.imgur.com/BkYcJdK.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Green Tea",
+    "description": "Refreshing green tea served hot or iced, with or without sweetener.",
+    "price": "$1.99",
+    "rating": 4.4,
+    "category": "Beverage",
+    "thumbnail": "https://i.imgur.com/W14Y1I2.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Margarita",
+    "description": "A classic margarita made with tequila, lime juice, and triple sec, served with a salted rim.",
+    "price": "$6.99",
+    "rating": 4.6,
+    "category": "Cocktail",
+    "thumbnail": "https://i.imgur.com/Zzml4J4.jpg"
+  },
+  {
+    "id": 30,
+    "title": "Martini",
+    "description": "An elegant martini made with gin or vodka and vermouth, garnished with an olive or lemon twist.",
+    "price": "$7.99",
+    "rating": 4.5,
+    "category": "Cocktail",
+    "thumbnail": "https://i.imgur.com/BJmKLrD.jpg"
+  }
+],
+"category":[
+  
+    { "name": "Burger", "href": "#" },
+    { "name": "Side Dish", "href": "#" },
+    { "name": "Appetizer", "href": "#" },
+    { "name": "Beverage", "href": "#" },
+    { "name": "Hot Dog", "href": "#" },
+    { "name": "Pizza", "href": "#" },
+    { "name": "Mexican", "href": "#" },
+    { "name": "Sandwich", "href": "#" },
+    { "name": "Wrap", "href": "#" },
+    { "name": "Salad", "href": "#" },
+    { "name": "Dessert", "href": "#" },
+    { "name": "Cocktail", "href": "#" }
+  
+  
+]
+
+
+  
+}
