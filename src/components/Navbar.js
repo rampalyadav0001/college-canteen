@@ -1,18 +1,20 @@
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
-const navigation = [
-  { name: 'Menu', href: '#', current: true },
-  { name: 'Deal', href: '#', current: false },
 
+const navigation = [
+  { name: 'Menu', href: '/', current: true },
+  { name: 'Deal', href: '#', current: false },
+  { name: 'About Us', href: '#', current: false },
 ];
+
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
@@ -26,19 +28,21 @@ function classNames(...classes) {
 export default function Navbar({ children }) {
   return (
     <>
-      <div className='min-h-full'>
-        <Disclosure as='nav' className='bg-gray-800'>
+      <div className='fixed top-0 w-full z-50 bg-yellow-light shadow'>
+        <Disclosure as='nav'>
           {({ open }) => (
             <>
               <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
                   <div className='flex items-center'>
                     <div className='flex-shrink-0'>
-                      <img
-                        className='h-8 w-8'
-                        src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-                        alt='Your Company'
-                      />
+                      <Link to='/'>
+                        <img
+                          className='h-8 w-8'
+                          src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
+                          alt='Your Company'
+                        />
+                      </Link>
                     </div>
                     <div className='hidden md:block'>
                       <div className='ml-10 flex items-baseline space-x-4'>
@@ -47,9 +51,7 @@ export default function Navbar({ children }) {
                             key={item.name}
                             href={item.href}
                             className={classNames(
-                              item.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                              item.current ? ' text-black font-bold' : 'text-black hover:bg-btn-red hover:text-white',
                               'rounded-md px-3 py-2 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
@@ -62,17 +64,19 @@ export default function Navbar({ children }) {
                   </div>
                   <div className='hidden md:block'>
                     <div className='ml-4 flex items-center md:ml-6'>
-                      <button
-                        type='button'
-                        className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
-                      >
-                        <span className='absolute -inset-1.5' />
-                        <span className='sr-only'>View notifications</span>
-                        <ShoppingBagIcon className='h-6 w-6' aria-hidden='true' />
-                      
-
-                      </button>
-
+                      <Link to='/cart'>
+                        <button
+                          type='button'
+                          className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+                        >
+                          <span className='absolute -inset-1.5' />
+                          <span className='sr-only'>View notifications</span>
+                          <ShoppingBagIcon
+                            className='h-6 w-6'
+                            aria-hidden='true'
+                          />
+                        </button>
+                      </Link>
                       {/* Profile dropdown */}
                       <Menu as='div' className='relative ml-3'>
                         <div>
@@ -133,6 +137,7 @@ export default function Navbar({ children }) {
                         />
                       )}
                     </Disclosure.Button>
+                    {/* Mobile menu button end */}
                   </div>
                 </div>
               </div>
@@ -145,9 +150,7 @@ export default function Navbar({ children }) {
                       as='a'
                       href={item.href}
                       className={classNames(
-                        item.current
-                          ? 'bg-gray-900 text-white'
-                          : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                         'block rounded-md px-3 py-2 text-base font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}
@@ -173,14 +176,19 @@ export default function Navbar({ children }) {
                         {user.email}
                       </div>
                     </div>
-                    <button
-                      type='button'
-                      className='relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
-                    >
-                      <span className='absolute -inset-1.5' />
-                      <span className='sr-only'>View notifications</span>
-                      <ShoppingBagIcon className='h-6 w-6' aria-hidden='true' />
-                    </button>
+                    <Link to='/cart' className='ml-auto'>
+                      <button
+                        type='button'
+                        className='relative flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+                      >
+                        <span className='absolute -inset-1.5' />
+                        <span className='sr-only'>View notifications</span>
+                        <ShoppingBagIcon
+                          className='h-6 w-6'
+                          aria-hidden='true'
+                        />
+                      </button>
+                    </Link>
                   </div>
                   <div className='mt-3 space-y-1 px-2'>
                     {userNavigation.map((item) => (
@@ -199,17 +207,12 @@ export default function Navbar({ children }) {
             </>
           )}
         </Disclosure>
+      </div>
 
-        <header className='bg-white shadow'>
-          <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
-            <h1 className='text-3xl font-bold tracking-tight text-gray-900'>
-              Dashboard
-            </h1>
-          </div>
-        </header>
+      <div className='mt-16'>
         <main>
           <div className='mx-auto max-w-7xl py-6 sm:px-6 lg:px-8'>
-            { children }
+            {children}
           </div>
         </main>
       </div>

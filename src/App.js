@@ -1,11 +1,22 @@
 import React from 'react';
-
-import HomePage from './Pages/HomePage';
-
+import { createBrowserRouter,RouterProvider} from 'react-router-dom'
+import {HomePage,CartPage } from './Pages'
+const router=createBrowserRouter([
+{
+  path:'/',
+  element:<HomePage />
+},
+{
+  path:'/cart',
+  element:<CartPage/>
+  
+}
+])
 function App() {
   return (
-    <div>
-  <HomePage></HomePage>
+    <div >
+   
+  <RouterProvider router={router} />
     </div>
   );
 }

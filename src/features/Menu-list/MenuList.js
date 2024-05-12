@@ -13,8 +13,12 @@ import {
   fetchAllCategoriesAsync,
   fetchAllProductsAsync,
   selectAllProductsByCategories,
+  fetchProductByCategoriesAsync,
+  categoryName,
 } from './MenuSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import { addItemAsync } from '../cart/cartSlice';
+
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
   { name: 'Best Rating', href: '#', current: false },
@@ -42,16 +46,16 @@ export default function MenuList() {
   const products = useSelector(selectAllProducts);
   const subCategories = useSelector(selectAllProductsByCategories);
   const dispatch = useDispatch();
+  const HandleFilter = (name) => {
+    console.log(name);
+    dispatch(fetchProductByCategoriesAsync(name));
+  };
+
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
     dispatch(fetchAllCategoriesAsync());
   }, [dispatch]);
-// const filteredProduct=[];
-//   function categoryFilterHandler(category){
-//     filteredProduct=products.filter((item)=>item.category===category);
-//   }
-//   console.log(filteredProduct);
-  
+
   return (
     <div className='bg-white'>
       <div>
@@ -84,7 +88,7 @@ export default function MenuList() {
                 leaveFrom='translate-x-0'
                 leaveTo='translate-x-full'
               >
-                <Dialog.Panel className='relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl'>
+                <Dialog.Panel className='relative top-14 ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl'>
                   <div className='flex items-center justify-between px-4'>
                     <h2 className='text-lg font-medium text-gray-900'>
                       Filters
@@ -108,11 +112,13 @@ export default function MenuList() {
                       {subCategories.map((category) => (
                         <li key={category.name}>
                           <a
-                            href={`#${category.href}`}
-                            className='block px-2 py-3'
-                          >
-                            {category.name}
-                          </a>
+                        className=' cursor-pointer'
+                        onClick={(e) => {
+                          HandleFilter(category.name);
+                        }}
+                      >
+                        {category.name}
+                      </a>
                         </li>
                       ))}
                     </ul>
@@ -124,23 +130,23 @@ export default function MenuList() {
         </Transition.Root>
 
         <main className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8    '>
-          <div className='flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24  sticky top-0  '>
-            <h1 className='text-4xl font-bold tracking-tight text-gray-900'>
-              Our Menu
+          <div className='flex  items-baseline justify-between border-b border-gray-200 pb-6 pt-24  top-0   xl:fixed '>
+            <h1 className='text-4xl ml-7 font-bold tracking-tight text-gray-900'>
+               Menu
             </h1>
 
             <div className='flex items-center '>
               <Menu as='div' className='relative inline-block text-left'>
                 <div>
-                  <Menu.Button className='group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900'>
+                  {/* <Menu.Button className='group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900'>
                     Sort
                     <ChevronDownIcon
                       className='-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500'
                       aria-hidden='true'
                     />
-                  </Menu.Button>
+                  </Menu.Button> */}
                 </div>
-
+{/* 
                 <Transition
                   as={Fragment}
                   enter='transition ease-out duration-100'
@@ -172,16 +178,16 @@ export default function MenuList() {
                       ))}
                     </div>
                   </Menu.Items>
-                </Transition>
+                </Transition> */}
               </Menu>
 
-              <button
+              {/* <button
                 type='button'
                 className='-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7'
               >
                 <span className='sr-only'>View grid</span>
                 <Squares2X2Icon className='h-5 w-5' aria-hidden='true' />
-              </button>
+              </button> */}
               <button
                 type='button'
                 className='-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden'
@@ -206,8 +212,14 @@ export default function MenuList() {
                       className='text-xl text-center rounded-md hover:font-bold'
                       key={category.name}
                     >
-                     <a href={`#${category.href}`} >{category.name}</a>
-
+                      <a
+                        className=' cursor-pointer'
+                        onClick={(e) => {
+                          HandleFilter(category.name);
+                        }}
+                      >
+                        {category.name}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -228,9 +240,14 @@ export default function MenuList() {
 
 // menu grid
 function MenuGrid({ products }) {
+  const dispatch = useDispatch();
+  // console.log(products);
+  let Name='';
+  Name=useSelector(categoryName);
   return (
     <div className='bg-white'>
-     <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
+      <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
+      <h1 className='text-2xl font-bold'>{Name}</h1>
         <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2  '>
           {products?.map((product) => (
             <div
@@ -245,20 +262,32 @@ function MenuGrid({ products }) {
                 />
               </div>
               <div className='mt-5'>
-               <div className='flex justify-between'>
-               <div className='text-green-600 text-lg'>${product.price}</div>
-                <div className='text-xl'>{product.title}</div>
-               </div>
+                <div className='flex justify-between'>
+                  <div className='text-green-600 text-lg'>₹{product.price}</div>
+                  <div className='text-xl'>{product.title}</div>
+                </div>
                 <div className='mt-2'>{product.description}</div>
-               <div className='flex justify-center items-center'> <button className='flex p-6 items-center mt-4 w-85 h-10 border-2 border-red-600 cursor-pointer rounded-md text-xl font-bold bg-red-600 bg-opacity-25 hover:bg-red-600 hover:text-white transition duration-200'>
-                  Add to Bag <ShoppingBagIcon  style={{width:"23px",marginLeft:"12px",marginTop:"2px"}}/>
-                 
-                </button></div>
+                <div className='flex justify-center items-center'>
+                  {' '}
+                  <button
+                    onClick={() => dispatch(addItemAsync(product))}
+                    className='flex p-6 items-center mt-4 w-85 h-10 border-2 border-red-600 cursor-pointer rounded-md text-xl font-bold bg-btn-orange bg-opacity-25 hover:bg-btn-red hover:text-white transition duration-200'
+                  >
+                    Add to Bag{' '}
+                    <ShoppingBagIcon
+                      style={{
+                        width: '23px',
+                        marginLeft: '12px',
+                        marginTop: '2px',
+                      }}
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-     </div>
+    </div>
   );
 }
