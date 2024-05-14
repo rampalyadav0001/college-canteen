@@ -177,12 +177,12 @@ function SignUp() {
         </div>
 
         <div className='mt-4 font-semibold text-sm text-slate-500 text-center md:text-left'>
-          Don't have an account?{' '}
+          Already have an account?{' '}
           <a
             className='text-red-600 hover:underline hover:underline-offset-4'
             href='#'
           >
-            Register
+            signIn
           </a>
         </div>
       </div>

@@ -303,6 +303,16 @@
   ],
   "cart": [
     {
+      "id": 3,
+      "title": "French Fries",
+      "description": "Crispy golden french fries lightly salted for the perfect snack or side dish.",
+      "price": 2.49,
+      "rating": 4.4,
+      "category": "Side Dish",
+      "thumbnail": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/L-8000442.jpg?ver=43.48",
+      "quantity": 5
+    },
+    {
       "id": 1,
       "title": "Cheeseburger",
       "description": "A classic cheeseburger with a juicy beef patty, melted cheese, lettuce, tomato, and pickles.",
@@ -320,16 +330,26 @@
       "rating": 4.2,
       "category": "Burger",
       "thumbnail": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/L-8000224.jpg?ver=43.48",
-      "quantity": 4
+      "quantity": 1
     },
     {
-      "id": 3,
-      "title": "French Fries",
-      "description": "Crispy golden french fries lightly salted for the perfect snack or side dish.",
-      "price": 2.49,
-      "rating": 4.4,
+      "id": 4,
+      "title": "Loaded Nachos",
+      "description": "Tortilla chips topped with melted cheese, seasoned ground beef, jalapenos, sour cream, and salsa.",
+      "price": 5.99,
+      "rating": 4.6,
       "category": "Side Dish",
       "thumbnail": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/L-8000442.jpg?ver=43.48",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "title": "Onion Rings",
+      "description": "Crispy and crunchy onion rings served with a side of dipping sauce.",
+      "price": 3.99,
+      "rating": 4.1,
+      "category": "Appetizer",
+      "thumbnail": "https://i.imgur.com/2MRt6ER.jpg",
       "quantity": 1
     }
   ],
@@ -339,6 +359,12 @@
       "password": "Ram2#2324e33",
       "role": "user",
       "id": 1
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "qwerty1###A",
+      "role": "user",
+      "id": 2
     }
   ]
 }

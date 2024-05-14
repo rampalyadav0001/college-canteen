@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 
-export function createUser(item) {
-  return axios.post('http://localhost:8080/user', item);
+export function createUser(userInfo) {
+  return axios.post('http://localhost:8080/user', userInfo);
 }
 
 
@@ -28,6 +28,8 @@ export function checkUser(loginInfo) {
     }
   });
 }
-
+export function signOutUser(userId){
+  return {data:'sucess'};
+}
 
 

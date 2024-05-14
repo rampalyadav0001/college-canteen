@@ -1,7 +1,9 @@
 import React from 'react';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom'
 import {HomePage,CartPage, SignUpPage } from './Pages'
-import SignIn from './features/auth/SignIn'
+import Logout from './features/auth/Logout';
+
+
 const router=createBrowserRouter([
 {
   path:'/',
@@ -17,9 +19,11 @@ const router=createBrowserRouter([
   element:<SignUpPage/>
 },
 {
-  path:'/signin',
-  element:<SignIn/>
-}
+  path:'/logout',
+  element:<Logout />
+},
+
+
 
 ])
 function App() {

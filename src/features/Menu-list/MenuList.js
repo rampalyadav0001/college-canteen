@@ -17,7 +17,7 @@ import {
   categoryName,
 } from './MenuSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItemAsync } from '../cart/cartSlice';
+import { addItemAsync, fetchCartItemAsync } from '../cart/cartSlice';
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -54,6 +54,7 @@ export default function MenuList() {
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
     dispatch(fetchAllCategoriesAsync());
+    dispatch(fetchCartItemAsync());
   }, [dispatch]);
 
   return (

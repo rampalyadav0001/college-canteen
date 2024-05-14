@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import {
   Bars3Icon,
@@ -8,6 +8,9 @@ import {
 import { Link } from 'react-router-dom';
 import { cartItem } from '../features/cart/cartSlice';
 import { useSelector } from 'react-redux';
+import Login from '../features/auth/Login';
+import { selectloggedInUser } from '../features/auth/authSlice';
+
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',
@@ -22,9 +25,9 @@ const navigation = [
 ];
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Your Profile', link: '#' },
+  { name: 'Settings', link: '#' },
+  { name: 'Sign out', link: '/logout' },
 ];
 
 function classNames(...classes) {
@@ -32,7 +35,14 @@ function classNames(...classes) {
 }
 
 export default function Navbar({ children }) {
-  let length=useSelector(cartItem).length;
+  const [showLogin, setShowLogin] = useState(false);
+  const HandleLogin = () => {
+    setShowLogin(!showLogin);
+  };
+  const loggedInUser = useSelector(selectloggedInUser);
+  const cartItems = useSelector(cartItem);
+  const cartItemsCount = cartItems.length;
+
   return (
     <>
       <div className='fixed top-0 w-full z-50 bg-yellow-light shadow'>
@@ -54,23 +64,24 @@ export default function Navbar({ children }) {
                     <div className='hidden md:block'>
                       <div className='ml-10 flex items-baseline space-x-4'>
                         {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className={classNames(
-                              item.current
-                                ? ' text-black font-bold'
-                                : 'text-black hover:bg-btn-red hover:text-white',
-                              'rounded-md px-3 py-2 text-sm font-medium'
-                            )}
-                            aria-current={item.current ? 'page' : undefined}
-                          >
-                            {item.name}
-                          </a>
+                          <Link to={item.href} key={item.name}>
+                            <li
+                              className={classNames(
+                                item.current
+                                  ? 'text-black font-bold'
+                                  : 'text-black hover:bg-btn-red hover:text-white',
+                                'rounded-md px-3 py-2 text-sm font-medium list-none'
+                              )}
+                              aria-current={item.current ? 'page' : undefined}
+                            >
+                              {item.name}
+                            </li>
+                          </Link>
                         ))}
                       </div>
                     </div>
                   </div>
+                  
                   <div className='hidden md:block'>
                     <div className='ml-4 flex items-center md:ml-6'>
                       <Link to='/cart'>
@@ -83,52 +94,64 @@ export default function Navbar({ children }) {
                             aria-hidden='true'
                           />
                           <span className='inline-flex relative items-center rounded-xl bg-btn-red -top-2 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-red-600/10'>
-                            {length}
+                            {cartItemsCount}
                           </span>
-                          {/* <span className='inline-flex relative -top-2'>2</span> */}
                         </button>
                       </Link>
+                     
+                     {showLogin &&<Login showLogin={showLogin} />}
+                        {loggedInUser===null&&<button onClick={HandleLogin} className='mx-4'>
+                        
+                          <li className='rounded-md px-3 py-2 text-sm font-medium list-none hover:bg-btn-red hover:text-white'>
+                            Sign In
+                          </li>
+                        </button>}
+                     
+
                       {/* Profile dropdown */}
-                      <Menu as='div' className='relative ml-3'>
-                        <div>
-                          <Menu.Button className='relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
-                            <span className='absolute -inset-1.5' />
-                            <span className='sr-only'>Open user menu</span>
-                            <img
-                              className='h-8 w-8 rounded-full'
-                              src={user.imageUrl}
-                              alt=''
-                            />
-                          </Menu.Button>
-                        </div>
-                        <Transition
-                          as={Fragment}
-                          enter='transition ease-out duration-100'
-                          enterFrom='transform opacity-0 scale-95'
-                          enterTo='transform opacity-100 scale-100'
-                          leave='transition ease-in duration-75'
-                          leaveFrom='transform opacity-100 scale-100'
-                          leaveTo='transform opacity-0 scale-95'
-                        >
-                          <Menu.Items className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-                            {userNavigation.map((item) => (
-                              <Menu.Item key={item.name}>
-                                {({ active }) => (
-                                  <a
-                                    href={item.href}
-                                    className={classNames(
-                                      active ? 'bg-gray-100' : '',
-                                      'block px-4 py-2 text-sm text-gray-700'
-                                    )}
-                                  >
-                                    {item.name}
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            ))}
-                          </Menu.Items>
-                        </Transition>
-                      </Menu>
+                      {loggedInUser && (
+                        <Menu as='div' className='relative ml-3'>
+                          <div>
+                            <Menu.Button className='relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
+                              <span className='absolute -inset-1.5' />
+                              <span className='sr-only'>Open user menu</span>
+                              <img
+                                className='h-8 w-8 rounded-full'
+                                src={user.imageUrl}
+                                alt=''
+                              />
+                            </Menu.Button>
+                          </div>
+                          <Transition
+                            as={Fragment}
+                            enter='transition ease-out duration-100'
+                            enterFrom='transform opacity-0 scale-95'
+                            enterTo='transform opacity-100 scale-100'
+                            leave='transition ease-in duration-75'
+                            leaveFrom='transform opacity-100 scale-100'
+                            leaveTo='transform opacity-0 scale-95'
+                          >
+                            <Menu.Items className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+                              {userNavigation.map((item) => (
+                                <Menu.Item key={item.name}>
+                                  {({ active }) => (
+                                    <Link to={item.link}>
+                                      <li
+                                        className={classNames(
+                                          active ? 'bg-gray-100' : '',
+                                          'block px-4 py-2 text-sm text-gray-700 list-none'
+                                        )}
+                                      >
+                                        {item.name}
+                                      </li>
+                                    </Link>
+                                  )}
+                                </Menu.Item>
+                              ))}
+                            </Menu.Items>
+                          </Transition>
+                        </Menu>
+                      )}
                     </div>
                   </div>
                   <div className='-mr-2 flex md:hidden'>

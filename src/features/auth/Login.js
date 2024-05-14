@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Dialog,
@@ -13,16 +13,17 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
-import { selectloggedInUser,usererror } from './authSlice';
+import { selectloggedInUser, usererror } from './authSlice';
 import { checkUserAsync } from './authSlice';
-function SignIn() {
-  const [open, setOpen] = React.useState(true);
-
-  const handleOpen = () => setOpen(!open);
+function Login({ showLogin }) {
+  const [Open, setOpen] = useState(false);
+  const handleopen = () => {
+    setOpen(!Open);
+  };
   const dispatch = useDispatch();
   const error = useSelector(usererror);
   const user = useSelector(selectloggedInUser);
- 
+
   const {
     register,
     handleSubmit,
@@ -30,23 +31,35 @@ function SignIn() {
   } = useForm();
 
   console.log(errors);
+  useEffect(() => {
+    if (showLogin) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  }, [showLogin]);
 
   return (
     <>
-    {user && <Navigate to="/" replace={true}></Navigate>}
-      {open && (
+      {user && <Navigate to='/' replace={true}></Navigate>}
+      {Open && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md xl:items-center xl:justify-center'>
           <Dialog
             size='xs'
-            open={open}
-            handler={handleOpen}
+            open={Open}
             className='bg-transparent shadow-none fixed inset-0 justify-between top-[23%] '
           >
             <Card className='mx-auto w-full max-w-[42rem]'>
               <CardBody className='flex flex-col gap-4'>
-                <Typography variant='h4' color='blue-gray'>
-                  Sign In
-                </Typography>
+                <div className='flex justify-between'>
+                  <Typography variant='h4' color='blue-gray'>
+                    Sign In
+                  </Typography>
+                  <Button onClick={handleopen} className='p-3  '>
+                    Close
+                  </Button>
+                </div>
+
                 <Typography
                   className='mb-3 font-normal'
                   variant='paragraph'
@@ -58,7 +71,11 @@ function SignIn() {
                   noValidate
                   onSubmit={handleSubmit((data) => {
                     dispatch(
-                    checkUserAsync({ email: data.email, password: data.password }));
+                      checkUserAsync({
+                        email: data.email,
+                        password: data.password,
+                      })
+                    );
                   })}
                   className='space-y-6'
                 >
@@ -126,6 +143,11 @@ function SignIn() {
                   <div>
                     <button
                       type='submit'
+                      onClick={()=>{
+                        if(user){
+                          handleopen();
+                        }
+                      }}
                       className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                     >
                       Sign In
@@ -139,18 +161,17 @@ function SignIn() {
                   className='mt-4 flex justify-center'
                 >
                   Don&apos;t have an account?
-                 <Link to='/signup'>
-                 <Typography
-                    as='a'
-                    href='#signup'
-                    variant='small'
-                    color='blue-gray'
-                    className='ml-1 font-bold'
-                    onClick={handleOpen}
-                  >
-                    Sign up
-                  </Typography>
-                 </Link>
+                  <Link to='/signup'>
+                    <Typography
+                      as='a'
+                      href='#signup'
+                      variant='small'
+                      color='blue-gray'
+                      className='ml-1 font-bold'
+                    >
+                      Sign up
+                    </Typography>
+                  </Link>
                 </Typography>
               </CardFooter>
             </Card>
@@ -160,4 +181,4 @@ function SignIn() {
     </>
   );
 }
-export default SignIn;
+export default Login;
