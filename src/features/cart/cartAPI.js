@@ -13,3 +13,4 @@ export function updateItem(id, item) {
 export function deleteItem(id) {
   return axios.delete(`http://localhost:8080/cart/${id}`);
 }
+

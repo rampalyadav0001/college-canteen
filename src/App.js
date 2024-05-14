@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom'
-import {HomePage,CartPage } from './Pages'
+import {HomePage,CartPage, SignUpPage } from './Pages'
+import SignIn from './features/auth/SignIn'
 const router=createBrowserRouter([
 {
   path:'/',
@@ -10,7 +11,16 @@ const router=createBrowserRouter([
   path:'/cart',
   element:<CartPage/>
   
+},
+{
+  path:'/signup',
+  element:<SignUpPage/>
+},
+{
+  path:'/signin',
+  element:<SignIn/>
 }
+
 ])
 function App() {
   return (

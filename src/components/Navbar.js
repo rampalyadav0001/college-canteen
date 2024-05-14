@@ -1,12 +1,18 @@
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  ShoppingBagIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
-
+import { cartItem } from '../features/cart/cartSlice';
+import { useSelector } from 'react-redux';
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',
-  imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  imageUrl:
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
 
 const navigation = [
@@ -26,6 +32,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar({ children }) {
+  let length=useSelector(cartItem).length;
   return (
     <>
       <div className='fixed top-0 w-full z-50 bg-yellow-light shadow'>
@@ -51,7 +58,9 @@ export default function Navbar({ children }) {
                             key={item.name}
                             href={item.href}
                             className={classNames(
-                              item.current ? ' text-black font-bold' : 'text-black hover:bg-btn-red hover:text-white',
+                              item.current
+                                ? ' text-black font-bold'
+                                : 'text-black hover:bg-btn-red hover:text-white',
                               'rounded-md px-3 py-2 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
@@ -67,14 +76,16 @@ export default function Navbar({ children }) {
                       <Link to='/cart'>
                         <button
                           type='button'
-                          className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+                          className='relative rounded-full bg-yellow-light p-1 text-black hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 flex '
                         >
-                          <span className='absolute -inset-1.5' />
-                          <span className='sr-only'>View notifications</span>
                           <ShoppingBagIcon
                             className='h-6 w-6'
                             aria-hidden='true'
                           />
+                          <span className='inline-flex relative items-center rounded-xl bg-btn-red -top-2 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-red-600/10'>
+                            {length}
+                          </span>
+                          {/* <span className='inline-flex relative -top-2'>2</span> */}
                         </button>
                       </Link>
                       {/* Profile dropdown */}
@@ -150,7 +161,9 @@ export default function Navbar({ children }) {
                       as='a'
                       href={item.href}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        item.current
+                          ? 'bg-gray-900 text-white'
+                          : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                         'block rounded-md px-3 py-2 text-base font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}

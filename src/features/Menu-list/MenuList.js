@@ -263,7 +263,7 @@ function MenuGrid({ products }) {
               </div>
               <div className='mt-5'>
                 <div className='flex justify-between'>
-                  <div className='text-green-600 text-lg'>₹{product.price}</div>
+                  <div className='text-green-600 text-lg'>{product.price}</div>
                   <div className='text-xl'>{product.title}</div>
                 </div>
                 <div className='mt-2'>{product.description}</div>
@@ -281,6 +281,7 @@ function MenuGrid({ products }) {
                         marginTop: '2px',
                       }}
                     />
+                      
                   </button>
                 </div>
               </div>
