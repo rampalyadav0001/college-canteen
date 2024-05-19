@@ -19,7 +19,7 @@ const user = {
 };
 
 const navigation = [
-  { name: 'Menu', href: '/', current: true },
+  { name: 'Menu', href: '/menu', current: true },
   { name: 'Deal', href: '#', current: false },
   { name: 'About Us', href: '#', current: false },
 ];

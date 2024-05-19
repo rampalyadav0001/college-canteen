@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import { selectloggedInUser, signOutUserAsync } from './authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { resetCartAsync } from '../cart/cartSlice';
 
 function Logout() {
   const dispatch = useDispatch();
   const user = useSelector(selectloggedInUser);
 
   useEffect(() => {
+    dispatch(resetCartAsync());
     dispatch(signOutUserAsync());
   },[]);
 

@@ -1,4 +1,4 @@
-import HomePage from './HomePage';
+import MenuPage from './MenuPage';
 import CartPage from './CartPage';
 import SignUpPage from './SignUpPage';
-export { HomePage, CartPage,SignUpPage };
+export { MenuPage, CartPage,SignUpPage };

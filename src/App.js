@@ -1,13 +1,19 @@
 import React from 'react';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom'
-import {HomePage,CartPage, SignUpPage } from './Pages'
+import {MenuPage,CartPage, SignUpPage } from './Pages'
 import Logout from './features/auth/Logout';
-
+import CheckoutPage from './Pages/CheckoutPage';
+import UserProfilePage from './Pages/UserProfilePage';
+import HomePage from './Pages/HomePage';
 
 const router=createBrowserRouter([
+  {
+    path:'/',
+    element:<HomePage/>
+  },
 {
-  path:'/',
-  element:<HomePage />
+  path:'/menu',
+  element:<MenuPage />
 },
 {
   path:'/cart',
@@ -22,6 +28,15 @@ const router=createBrowserRouter([
   path:'/logout',
   element:<Logout />
 },
+{
+  path:'/checkout',
+  element:<CheckoutPage />
+},
+{
+  path:'/userprofile',
+  element:<UserProfilePage/>
+},
+
 
 
 

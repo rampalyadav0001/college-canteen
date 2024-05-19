@@ -18,12 +18,11 @@ import {
   Input,
   Checkbox,
 } from '@material-tailwind/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector(cartItem);
-  const [quantity, setQuantity] = useState(1);
 
   const removeAllItems = () => {
     dispatch(resetCartAsync());
@@ -54,9 +53,12 @@ function Cart() {
       </h1>
 
       <div className='flex flex-col xl:flex-row xl:justify-between'>
-        <div className='flex flex-col gap-3 xl:flex-grow'>
+        <div className='flex flex-col gap-3 xl:flex-grow '>
           {cartItems.map((item) => (
-            <div key={item.id} className='flex flex-col p-4 bg-neutral-100 shadow-md'>
+            <div
+              key={item.id}
+              className='flex flex-col p-4 bg-neutral-100 shadow-md'
+            >
               <div className='flex flex-col gap-6 items-center mb-4 xl:flex-row xl:justify-between md:flex-row md:justify-between'>
                 <div className='flex items-center'>
                   <img
@@ -110,8 +112,11 @@ function Cart() {
             </Link>
           </div>
         </div>
-        <div className='p-4'>
-          <ShoppingCartSummary totalAmount={totalAmount} totalItems={totalItems} />
+        <div className='p-4 '>
+          <ShoppingCartSummary
+            totalAmount={totalAmount}
+            totalItems={totalItems}
+          />
         </div>
       </div>
     </div>
@@ -167,7 +172,8 @@ function ShoppingCartSummary({ totalAmount, totalItems }) {
           onChange={() => setAddHope(!addHope)}
         />
         <label htmlFor='addHope' className='ml-2'>
-          Donate ₹5.00 Tick to Add Hope. Our goal is to feed 20 million people by 2024.
+          Donate ₹5.00 Tick to Add Hope. Our goal is to feed 20 million people
+          by 2024.
         </label>
       </div>
       <button
@@ -177,14 +183,30 @@ function ShoppingCartSummary({ totalAmount, totalItems }) {
         Checkout ₹{totalPrice.toFixed(2)}
       </button>
 
-      {openDialog && (
-        <DialogDefault setOpenDialog={setOpenDialog} />
-      )}
+      {openDialog && <DialogDefault setOpenDialog={setOpenDialog} />}
     </div>
   );
 }
 
 function DialogDefault({ setOpenDialog }) {
+  const [formData, setFormData] = useState({
+    email: '',
+    name: '',
+    tableNo: '',
+    phoneNo: '',
+  });
+
+  const navigate = useNavigate();
+
+  const handleConfirm = () => {
+    // Assuming form validation is done
+    navigate('/checkout', { state: formData });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
   const handleClose = () => {
     setOpenDialog(false);
   };
@@ -202,25 +224,55 @@ function DialogDefault({ setOpenDialog }) {
             <Typography variant='h4' color='blue-gray'>
               Checkout
             </Typography>
-            <Typography className='mb-3 font-normal' variant='paragraph' color='gray'>
-              Enter your email and password to Sign In.
-            </Typography>
+
             <Typography className='-mb-2' variant='h6'>
               Your Email
             </Typography>
-            <Input type='email' placeholder='Email' size='lg' />
+            <Input
+              type='email'
+              name='email'
+              placeholder='Email'
+              size='lg'
+              value={formData.email}
+              onChange={handleChange}
+            />
             <Typography className='-mb-2' variant='h6'>
               Name
             </Typography>
-            <Input type='Text' size='lg' />
+            <Input
+              type='text'
+              name='name'
+              placeholder='Name'
+              size='lg'
+              value={formData.name}
+              onChange={handleChange}
+            />
             <Typography className='-mb-2' variant='h6'>
               Table No
             </Typography>
-            <Input type='number' size='lg' />
+            <Input
+              type='number'
+              name='tableNo'
+              placeholder='Table No'
+              size='lg'
+              value={formData.tableNo}
+              onChange={handleChange}
+            />
+            <Typography className='-mb-2' variant='h6'>
+              Phone No
+            </Typography>
+            <Input
+              type='number'
+              name='phoneNo'
+              placeholder='Phone No'
+              size='lg'
+              value={formData.phoneNo}
+              onChange={handleChange}
+            />
           </CardBody>
           <CardFooter className='pt-0'>
             <button
-              onClick={handleClose}
+              onClick={handleConfirm}
               className='bg-red-500 text-white py-2 px-4 rounded-full hover:font-bold'
             >
               Confirm
