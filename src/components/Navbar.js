@@ -10,6 +10,7 @@ import { cartItem } from '../features/cart/cartSlice';
 import { useSelector } from 'react-redux';
 import Login from '../features/auth/Login';
 import { selectloggedInUser } from '../features/auth/authSlice';
+import logo from '../assests/logo.png'
 
 const user = {
   name: 'Tom Cook',
@@ -55,8 +56,8 @@ export default function Navbar({ children }) {
                     <div className='flex-shrink-0'>
                       <Link to='/'>
                         <img
-                          className='h-8 w-8'
-                          src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
+                          className=' h-16 w-16'
+                          src={logo}
                           alt='Your Company'
                         />
                       </Link>

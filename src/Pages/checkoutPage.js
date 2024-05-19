@@ -33,6 +33,7 @@ function CheckoutPage() {
         status: 'pending', // other status can be delivered, received.
       };
       dispatch(createOrderAsync(order));
+      alert("Order Placed Sucessfully....")
     } else {
       alert('Select a payment Method');
     }

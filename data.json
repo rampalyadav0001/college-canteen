@@ -7,7 +7,7 @@
       "price": 4.99,
       "rating": 4.5,
       "category": "Burger",
-      "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2020/07/best-burgers-www.thereciperebel.com-1200-13-of-18.jpg"
+      "thumbnail": "https://wallpaperaccess.com/full/2004483.jpg"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "price": 3.99,
       "rating": 4.2,
       "category": "Burger",
-      "thumbnail": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/L-8000224.jpg?ver=43.48"
+      "thumbnail": "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS.jpg"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "price": 2.49,
       "rating": 4.4,
       "category": "Side Dish",
-      "thumbnail": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/L-8000442.jpg?ver=43.48"
+      "thumbnail": "https://wallpapercave.com/wp/wp2148273.jpg"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "price": 5.99,
       "rating": 4.6,
       "category": "Side Dish",
-      "thumbnail": "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/L-8000442.jpg?ver=43.48"
+      "thumbnail": "https://www.spendwithpennies.com/wp-content/uploads/2018/12/SpendWithPennies-Best-Loaded-Nachos-22.jpg"
     },
     {
       "id": 5,
@@ -43,7 +43,7 @@
       "price": 3.99,
       "rating": 4.3,
       "category": "Appetizer",
-      "thumbnail": "https://i.imgur.com/1M2dIPU.jpg"
+      "thumbnail": "https://thetoastedpinenut.com/wp-content/uploads/2017/08/IMG_5288.jpg"
     },
     {
       "id": 6,
@@ -52,7 +52,7 @@
       "price": 3.99,
       "rating": 4.1,
       "category": "Appetizer",
-      "thumbnail": "https://i.imgur.com/2MRt6ER.jpg"
+      "thumbnail": "https://natashaskitchen.com/wp-content/uploads/2022/06/Onion-Rings-Recipe-5.jpg"
     },
     {
       "id": 7,
@@ -61,7 +61,7 @@
       "price": 3.99,
       "rating": 4.4,
       "category": "Appetizer",
-      "thumbnail": "https://i.imgur.com/WXVnUaU.jpg"
+      "thumbnail": "https://th.bing.com/th/id/OIP.QcRkgTZ1yYOmv0MKVvOdVQHaLH?rs=1&pid=ImgDetMain"
     },
     {
       "id": 8,
@@ -70,7 +70,7 @@
       "price": 3.49,
       "rating": 4.5,
       "category": "Beverage",
-      "thumbnail": "https://i.imgur.com/ViyUMeF.jpg"
+      "thumbnail": "https://www.unicornsinthekitchen.com/wp-content/uploads/2021/07/Strawberry-Milkshake-2.1200px-1-of-1-720x1080.jpg"
     },
     {
       "id": 9,
@@ -79,7 +79,7 @@
       "price": 1.49,
       "rating": 4.2,
       "category": "Beverage",
-      "thumbnail": "https://i.imgur.com/C7Je7HA.jpg"
+      "thumbnail": "https://th.bing.com/th/id/OSK.HEROBXuw2IvZ94pKy-Nv51CEh9LTCAGPRfG8ZPNUU2kwjmo?rs=1&pid=ImgDetMain"
     },
     {
       "id": 10,
@@ -241,7 +241,7 @@
       "price": 2.99,
       "rating": 4.2,
       "category": "Beverage",
-      "thumbnail": "https://i.imgur.com/BkYcJdK.jpg"
+      "thumbnail": "https://cdn.pickuplimes.com/cache/0e/3a/0e3a9431b6af2aff54e97e573f58476c.jpg"
     },
     {
       "id": 28,
@@ -250,7 +250,7 @@
       "price": 1.99,
       "rating": 4.4,
       "category": "Beverage",
-      "thumbnail": "https://i.imgur.com/W14Y1I2.jpg"
+      "thumbnail": "https://th.bing.com/th/id/OIP.36Myfq5znYy7WxoGncH7jAHaE8?rs=1&pid=ImgDetMain"
     },
     {
       "id": 29,
@@ -388,6 +388,86 @@
       "paymentMethod": "cash",
       "status": "pending",
       "id": 2
+    },
+    {
+      "cartItems": [
+        {
+          "id": 1,
+          "title": "Cheeseburger",
+          "description": "A classic cheeseburger with a juicy beef patty, melted cheese, lettuce, tomato, and pickles.",
+          "price": 4.99,
+          "rating": 4.5,
+          "category": "Burger",
+          "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2020/07/best-burgers-www.thereciperebel.com-1200-13-of-18.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 4.99,
+      "totalItems": 1,
+      "user": null,
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 3
+    },
+    {
+      "cartItems": [
+        {
+          "id": 1,
+          "title": "Cheeseburger",
+          "description": "A classic cheeseburger with a juicy beef patty, melted cheese, lettuce, tomato, and pickles.",
+          "price": 4.99,
+          "rating": 4.5,
+          "category": "Burger",
+          "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2020/07/best-burgers-www.thereciperebel.com-1200-13-of-18.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 4.99,
+      "totalItems": 1,
+      "user": null,
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 4
+    },
+    {
+      "cartItems": [
+        {
+          "id": 1,
+          "title": "Cheeseburger",
+          "description": "A classic cheeseburger with a juicy beef patty, melted cheese, lettuce, tomato, and pickles.",
+          "price": 4.99,
+          "rating": 4.5,
+          "category": "Burger",
+          "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2020/07/best-burgers-www.thereciperebel.com-1200-13-of-18.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 4.99,
+      "totalItems": 1,
+      "user": null,
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 5
+    },
+    {
+      "cartItems": [
+        {
+          "id": 1,
+          "title": "Cheeseburger",
+          "description": "A classic cheeseburger with a juicy beef patty, melted cheese, lettuce, tomato, and pickles.",
+          "price": 4.99,
+          "rating": 4.5,
+          "category": "Burger",
+          "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2020/07/best-burgers-www.thereciperebel.com-1200-13-of-18.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 4.99,
+      "totalItems": 1,
+      "user": null,
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 6
     }
   ]
 }
